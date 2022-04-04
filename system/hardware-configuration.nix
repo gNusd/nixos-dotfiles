@@ -14,8 +14,15 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/58301bb0-9f9e-4911-b61f-111a90f06e9c";
+    { device = "/dev/disk/by-uuid/86f95eaa-0fae-4a46-8eab-0e029d8a380a";
       fsType = "ext4";
+    };
+
+  boot.initrd.luks.devices."NIXOS".device = "/dev/disk/by-uuid/c3085bc9-75c6-4147-bcfb-bf4c75ff01cf";
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/7DB1-7E26";
+      fsType = "vfat";
     };
 
   swapDevices = [ ];

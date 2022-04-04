@@ -10,16 +10,12 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
@@ -75,77 +71,20 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # system
-    home-manager
 
-    #cli
-    wget
+    home-manager 
+
+    # cli
     git
-    curl
-    exa
-    xclip
-    vifm
-    fwupd
-    bat 
-    dust 
-    fd 
-    ripgrep
-    tokei
-    bottom
-    bandwhich
-    delta
+    wget
 
-
-    # zsh
-    zsh
-    zsh-autosuggestions
-    zsh-completions
-    zsh-fast-syntax-highlighting
-
-    # fonts
-    source-code-pro
-    # nerdfonts
-
-    # themes
-    kde-gruvbox
-    
     # editors
     neovim
-    ## vscode
-    vscode-with-extensions
-
-    # lsp
-    python39Packages.python-lsp-server
-    yarn-bash-completion
-    vimPlugins.vim-lsp
-    lua53Packages.lua-lsp
-    nodePackages.dockerfile-language-server-nodejs
-    rnix-lsp
     
     # gui
     firefox
-    vivaldi
-    nextcloud-client
-    bitwarden
-    virt-manager
-    mullvad-vpn
-    tdesktop  
-    signal-desktop
-    neochat
-    gimp
-
-    # libaries
-    libsForQt5.bismuth
-    libsForQt5.kdeconnect-kde
-    libsForQt5.kmail
-    vivaldi-widevine
-    vivaldi-ffmpeg-codecs
   ];
-
-
-  nixpkgs.config = {
-    allowUnfree = true;
-   };	
+  nixpkgs.config.allowUnfree = true;
 
   # List services that you want to enable:
   programs.zsh = {
