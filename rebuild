@@ -1,0 +1,4 @@
+#!/bin/sh
+pushd "$HOME"/.local/git/nixdotfiles
+sudo nixos-rebuild switch -I nixos-config=system/configuration.nix
+popd
