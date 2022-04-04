@@ -84,8 +84,13 @@
     userName = "gnus";
     userEmail = "gnus@mailbox.org";
   };
-
-
-
+  
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs; [ 
+      vimPlugins.vim-nix 
+      vimPlugins.vim-plug 
+    ];
+  };
 
 }
