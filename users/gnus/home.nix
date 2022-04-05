@@ -88,9 +88,11 @@
   
 home.file = {
   ".zshrc".source = ./dotfiles/.zshrc;
+  ".tmux.conf".source = ./dotfiles/.tmux.conf;
   ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
   ".config/vifm".source = ./dotfiles/.config/vifm;
   ".config/zathura".source = ./dotfiles/.config/zathura;
+  ".config/user-dirs.dirs".source = ./dotfiles/.config/user-dirs.dirs;
 };
 
 }

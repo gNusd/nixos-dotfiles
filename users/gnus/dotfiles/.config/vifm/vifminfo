@@ -1,0 +1,633 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/gnus/
+	..
+1581710777
+'b
+	/home/gnus/bin/
+	..
+1581710777
+'h
+	/home/gnus/
+	..
+1581710777
+'k
+	/home/gnus/nextcloud/bilder/icon
+	App-Terminal-icon.png
+1581876238
+
+# Bookmarks:
+
+# TUI:
+al
+q1
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/gnus/projects/java/kursen
+	my_chapter_6
+7
+d/home/gnus/projects/java/kursen/my_chapter_6
+	..
+0
+d/home/gnus/projects/java/kursen
+	uppgifter
+8
+d/home/gnus/projects/java/kursen/uppgifter
+	employee
+1
+d/home/gnus/projects/java/kursen/uppgifter/employee
+	Employee.java
+1
+d/home/gnus/repositories/dotfiles/.config/nvim
+	maps.vim
+6
+d/home/gnus/projects/java/kursen/uppgifter/employee
+	dbEmployee.class
+3
+d/home/gnus/repositories/scripts
+	..
+0
+d/home/gnus/repositories
+	dotfiles
+5
+d/home/gnus/repositories/dotfiles
+	..
+0
+d/home/gnus/repositories
+	..
+0
+d/home/gnus
+	.mozilla
+10
+d/home/gnus/.mozilla
+	firefox
+2
+d/home/gnus/.mozilla/firefox
+	nkiwrsrt.default-release
+4
+d/home/gnus/.mozilla/firefox/nkiwrsrt.default-release
+	..
+0
+d/home/gnus/.mozilla/firefox
+	q884ba88.default
+5
+d/home/gnus/.mozilla/firefox/q884ba88.default
+	..
+0
+d/home/gnus/.mozilla/firefox
+	current
+3
+d/home/gnus/.mozilla/firefox/current
+	..
+0
+d/home/gnus/.mozilla/firefox
+	current
+3
+d/home/gnus/.mozilla
+	firefox
+2
+d/home/gnus
+	hugo
+34
+d/home/gnus/hugo
+	gnusd.xyz
+1
+d/home/gnus/hugo/gnusd.xyz
+	static
+6
+d/home/gnus/hugo/gnusd.xyz/static
+	img
+1
+d/home/gnus/hugo/gnusd.xyz/static/img
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/static
+	..
+0
+d/home/gnus/hugo/gnusd.xyz
+	themes
+8
+d/home/gnus/hugo/gnusd.xyz/themes
+	hello-friend
+3
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend
+	images
+3
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/images
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend
+	static
+6
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/static
+	assets
+1
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/static/assets
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/static
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend
+	exampleSite
+2
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/exampleSite
+	static
+2
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/exampleSite/static
+	img
+1
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/exampleSite/static/img
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/exampleSite/static
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/exampleSite
+	content
+1
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/exampleSite/content
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend/exampleSite
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/hello-friend
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes
+	okayish
+5
+d/home/gnus/hugo/gnusd.xyz/themes/okayish
+	images
+4
+d/home/gnus/hugo/gnusd.xyz/themes/okayish/images
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/okayish
+	static
+6
+d/home/gnus/hugo/gnusd.xyz/themes/okayish/static
+	images
+2
+d/home/gnus/hugo/gnusd.xyz/themes/okayish/static/images
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/okayish/static
+	css
+1
+d/home/gnus/hugo/gnusd.xyz/themes/okayish/static/css
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/okayish/static
+	images
+2
+d/home/gnus/hugo/gnusd.xyz/themes/okayish/static/images
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/okayish/static
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/okayish
+	static
+6
+d/home/gnus/hugo/gnusd.xyz/themes
+	..
+0
+d/home/gnus/hugo/gnusd.xyz
+	themes
+7
+d/home/gnus/hugo/gnusd.xyz/themes
+	beautifulhugo
+1
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo
+	images
+6
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo/images
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo
+	static
+8
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo/static
+	img
+4
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo/static/img
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo/static
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes
+	..
+0
+d/home/gnus/hugo/gnusd.xyz
+	static
+6
+d/home/gnus/hugo/gnusd.xyz/static
+	..
+0
+d/home/gnus/hugo/gnusd.xyz
+	themes
+7
+d/home/gnus/hugo/gnusd.xyz/themes
+	beautifulhugo
+1
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo
+	static
+8
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo/static
+	img
+4
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo/static/img
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo/static
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes/beautifulhugo
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/themes
+	..
+0
+d/home/gnus/hugo/gnusd.xyz
+	static
+6
+d/home/gnus/hugo/gnusd.xyz/static
+	img
+1
+d/home/gnus/hugo/gnusd.xyz/static/img
+	..
+0
+d/home/gnus/hugo/gnusd.xyz/static
+	..
+0
+d/home/gnus/hugo/gnusd.xyz
+	..
+0
+d/home/gnus/hugo
+	..
+0
+d/home/gnus
+	hämtningar
+35
+d/home/gnus/hämtningar
+	..
+0
+d/home/gnus
+	hämtningar
+35
+d/home/gnus/hämtningar
+	tmp
+16
+d/home/gnus
+	hämtningar
+7
+d/home/gnus/hämtningar
+	..
+0
+d/home/gnus
+	hugo
+7
+d/home/gnus/hugo
+	gnusd.xyz
+1
+d/home/gnus/hugo/gnusd.xyz
+	static
+6
+d/home/gnus/hugo/gnusd.xyz/static
+	img
+1
+d/home/gnus/hugo/gnusd.xyz/static/img
+	..
+0
+d/home/gnus/tmp/nvim/config
+	..
+0
+d/home/gnus/projects/rust/lsbars/src
+	..
+0
+d/home/gnus/projects/python
+	stella_magnus_programering.py
+36
+d/home/gnus/tmp/nvim
+	..
+0
+d/home/gnus/tmp
+	
+0
+d/home/gnus/repositories/dotfiles/.config/nvim
+	maps.vim
+6
+d
+
+# Right window history (oldest to newest):
+D/home/gnus/bin
+	
+0
+D/home/gnus/nextcloud/notes/computers
+	mirrorlist
+13
+D/home/gnus/nextcloud/notes
+	..
+0
+D/home/gnus/nextcloud
+	..
+0
+D/home/gnus
+	repositories
+10
+D/home/gnus/repositories
+	dotfiles
+4
+D/home/gnus/repositories/dotfiles
+	..
+0
+D/home/gnus/repositories
+	dotfiles
+4
+D/home/gnus/repositories/dotfiles
+	..
+0
+D/home/gnus/repositories
+	dotfiles
+4
+D/home/gnus
+	repositories
+10
+D/home/gnus/repositories
+	dotfiles
+4
+D/home/gnus/repositories/dotfiles
+	..
+0
+D/home/gnus/repositories
+	..
+0
+D/home/gnus
+	projects
+9
+D/home/gnus/projects
+	java
+9
+D/home/gnus/projects/java
+	kursen
+1
+D/home/gnus/projects/java/kursen
+	Gaddis Java 6th Edition.pdf
+9
+D/home/gnus/projects/java
+	..
+0
+D/home/gnus/projects
+	..
+0
+D/home/gnus
+	projects
+9
+D/home
+	gnus
+1
+D/home/gnus
+	repositories
+10
+D/home/gnus/repositories
+	dotfiles
+4
+D/home/gnus/repositories/dotfiles
+	.config
+1
+D/home/gnus/repositories/dotfiles/.config
+	vifm
+4
+D/home/gnus/repositories/dotfiles/.config/vifm
+	scripts
+2
+D/home/gnus/repositories/dotfiles/.config/vifm/scripts
+	..
+0
+D/home/gnus/repositories/dotfiles/.config/vifm
+	..
+0
+D/home/gnus/repositories/dotfiles/.config
+	..
+0
+D/home/gnus/repositories/dotfiles
+	..
+0
+D/home/gnus/repositories
+	..
+0
+D/home/gnus
+	repositories
+10
+D/home/gnus/repositories
+	dotfiles
+4
+D/home/gnus/repositories/dotfiles
+	.config
+1
+D/home/gnus/repositories/dotfiles/.config
+	vifm
+4
+D/home/gnus/repositories/dotfiles/.config/vifm
+	syntax
+3
+D/home/gnus/repositories/dotfiles/.config/vifm/syntax
+	vifm.vim
+1
+D/home/gnus/repositories/dotfiles/.config/vifm
+	colors
+1
+D/home/gnus/repositories/dotfiles/.config
+	yabar
+10
+D/home/gnus/repositories/dotfiles
+	.mozilla
+3
+D/home/gnus/repositories
+	dotfiles
+7
+D/home/gnus/repositories/dotfiles
+	.config
+1
+D/home/gnus/repositories/dotfiles/.config
+	vifm
+9
+D/home/gnus/repositories/dotfiles/.config/vifm
+	..
+0
+D/home/gnus/repositories/dotfiles/.config
+	nvim
+3
+D/home/gnus/repositories/dotfiles/.config/nvim
+	config
+1
+D/home/gnus/repositories/dotfiles/.config/nvim/config
+	..
+0
+D/home/gnus/repositories/dotfiles/.config/nvim
+	..
+0
+D/home/gnus/repositories/dotfiles/.config
+	yabar
+10
+D/home/gnus/repositories/dotfiles/.config/yabar
+	..
+0
+D/home/gnus/repositories/dotfiles/.config
+	nvim
+3
+D/home/gnus/repositories/dotfiles/.config/nvim
+	config
+1
+D/home/gnus/repositories/dotfiles/.config/nvim/config
+	..
+0
+D/home/gnus/repositories/dotfiles/.config/nvim
+	config
+1
+D/home/gnus/repositories/dotfiles/.config/nvim/config
+	..
+0
+D/home/gnus/repositories/dotfiles/.config/nvim
+	..
+0
+D/home/gnus/repositories/dotfiles/.config
+	tridactyl
+8
+D/home/gnus/repositories/dotfiles/.config/tridactyl
+	..
+0
+D/home/gnus/repositories/dotfiles/.config
+	..
+0
+D/home/gnus/repositories/dotfiles
+	..
+0
+D/home/gnus/repositories
+	dotfiles
+5
+D/home/gnus/repositories/dotfiles
+	.mozilla
+3
+D/home/gnus/repositories/dotfiles/.mozilla
+	firefox
+1
+D/home/gnus/repositories/dotfiles/.mozilla/firefox
+	current
+1
+D/home/gnus/repositories/dotfiles/.mozilla/firefox/current
+	chrome
+1
+D/home/gnus/repositories/dotfiles/.mozilla/firefox/current/chrome
+	..
+0
+D/home/gnus/repositories/dotfiles/.mozilla/firefox/current
+	..
+0
+D/home/gnus/repositories/dotfiles/.mozilla/firefox
+	..
+0
+D/home/gnus/repositories/dotfiles/.mozilla
+	..
+0
+D/home/gnus/repositories/dotfiles
+	..
+0
+D/home/gnus/repositories
+	..
+0
+D/home/gnus
+	..
+0
+D/home
+	gnus
+1
+D/home/gnus
+	bin
+54
+D/home/gnus/bin
+	..
+0
+D/home/gnus
+	repositories
+48
+D/home/gnus/repositories
+	dotfiles
+4
+D/home/gnus/repositories/dotfiles
+	.config
+1
+D/home/gnus/repositories/dotfiles/.config
+	zsh
+11
+D/home/gnus/repositories/dotfiles/.config/zsh
+	..
+0
+D/home/gnus/repositories/dotfiles/.config
+	nvim
+3
+D/home/gnus/repositories/dotfiles/.config/nvim
+	init.vim
+6
+D
+
+# Command line history (oldest to newest):
+:source /home/gnus/repositories/dotfiles/.config/vifm/vifmrc
+:reload
+::q
+:edit
+:vmap
+:nmap
+:vsplit
+:only
+:mkdir employee
+:vim Employee.java
+:touch Employee.java
+:delete
+:bin
+:zo
+:set wrap
+:q:
+:q
+
+# Search history (oldest to newest):
+/hidden
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+""/home/gnus/.local/share/vifm/Trash/000_yabar
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+t/home/gnus/.local/share/vifm/Trash/000_analytics.php
+	/home/gnus/projects/java/kursen/my_chapter_6/analytics.php
+t/home/gnus/.local/share/vifm/Trash/000_yabar
+	/home/gnus/repositories/dotfiles/.config/yabar
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].0
+]F
+s0

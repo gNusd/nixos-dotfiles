@@ -1,0 +1,4 @@
+set default-fg \#CCBBCC
+set default-bg \#000000
+
+set adjust-open width

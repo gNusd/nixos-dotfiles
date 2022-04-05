@@ -1,0 +1,11 @@
+export KEYTIMEOUT=1
+export EDITOR=nvim
+export VISUAL=nvim
+export NVIM_GTK_PREFER_DARK_THEME=1
+export NVIM_GTK_NO_WINDOW_DECORATION=0
+export NVIM_GTK_NO_HEADERBAR=0
+export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+export PATH="$HOME/bin:$HOME/.cargo/bin:/var/lib/snapd/snap/bin/:/$HOME/.local/bin:/$HOME/.config/repos/nixos_dotfiles/bin/:/$HOME/.yarn/bin/:$HOME/.local/share/nvim/lsp_servers/:$PATH"
+export SSH_ASKPASS='/usr/bin/ksshaskpass'
+export BW_SESSION="Gfks8axlB7KXze0se+glPvU3Y7UQS080gugZqvXqQW9/PjLa7WCW1lZMS3dwxyqr4R6RfcC36PIPOxHTW/RyzQ=="
+export XDG_DATA_DIRS='/home/gnus/.local/share/flatpak/exports/share':'/var/lib/flatpak/exports/share':$XDG_DATA_DIRS
