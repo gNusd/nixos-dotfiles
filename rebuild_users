@@ -1,4 +1,4 @@
 #!/bin/sh
-pushd "$HOME"/.local/git/nixos_dotfiles
+pushd "$HOME"/.config/repos/nixos_dotfiles
 home-manager switch -f users/gnus/home.nix
 popd

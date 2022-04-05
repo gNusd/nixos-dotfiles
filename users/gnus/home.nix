@@ -14,7 +14,7 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "21.05";
+  home.stateVersion = "21.11";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -50,7 +50,7 @@
     kde-gruvbox
     
     # editors
-    vscode-with-extensions
+    vscode
 
     # lsp
     python39Packages.python-lsp-server
@@ -92,5 +92,10 @@
       vimPlugins.vim-plug 
     ];
   };
+home.file = {
+   ".zshrc".text = ''
+    source .config/repos/dotfiles/.zshrc
+   '';
+};
 
 }

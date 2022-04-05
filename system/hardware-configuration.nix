@@ -14,14 +14,27 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/86f95eaa-0fae-4a46-8eab-0e029d8a380a";
-      fsType = "ext4";
+    { device = "/dev/mapper/NIXROOT";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
     };
 
-  boot.initrd.luks.devices."NIXOS".device = "/dev/disk/by-uuid/c3085bc9-75c6-4147-bcfb-bf4c75ff01cf";
+  boot.initrd.luks.devices."NIXROOT".device = "/dev/disk/by-uuid/55bf544e-1941-428a-81da-e5d14e3c6dcb";
+
+  fileSystems."/home" =
+    { device = "/dev/mapper/NIXROOT";
+      fsType = "btrfs";
+      options = [ "subvol=@HOME" ];
+    };
+
+  fileSystems."/.snapshots" =
+    { device = "/dev/mapper/NIXROOT";
+      fsType = "btrfs";
+      options = [ "subvol=.snapshots" ];
+    };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7DB1-7E26";
+    { device = "/dev/disk/by-uuid/5BEB-39B8";
       fsType = "vfat";
     };
 
