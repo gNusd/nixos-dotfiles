@@ -65,23 +65,23 @@ endfunction
 map <silent> <leader>z :call Compile()<CR><CR>
 
 if exists('g:vscode')
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/plug-plugin.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/alias.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/ab.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/buffer.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/plug-plugin.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/alias.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/ab.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/buffer.vim
 else
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/plug-plugin.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/alias.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/ab.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/completion.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/nav.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/git.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/theme.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/buffer.vim
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/term.vim
-	" source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/lsp.lua
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/cmp.lua
-	source $HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles/.config/nvim/config/treesitter.lua
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/plug-plugin.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/alias.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/ab.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/completion.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/nav.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/git.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/theme.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/buffer.vim
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/term.vim
+	" source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/lsp.lua
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/cmp.lua
+	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/treesitter.lua
 endif
 
 

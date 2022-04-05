@@ -36,7 +36,11 @@
     delta
 
 
-    # zsh
+    # shells
+    ## nushell
+    nushell
+
+    ## zsh
     zsh
     zsh-autosuggestions
     zsh-completions
@@ -89,6 +93,7 @@
 home.file = {
   ".zshrc".source = ./dotfiles/.zshrc;
   ".tmux.conf".source = ./dotfiles/.tmux.conf;
+  ".config/nu/config.toml".source = ./dotfiles/.config/nu/config.toml;
   ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
   ".config/vifm".source = ./dotfiles/.config/vifm;
   ".config/zathura".source = ./dotfiles/.config/zathura;

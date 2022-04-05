@@ -1,5 +1,4 @@
 #!/bin/sh
-FLAG="$1"
-pushd "$HOME"/.config/repos/nixos_dotfiles
-sudo nixos-rebuild switch -I nixos-config=system/configuration.nix "$FLAG"
+pushd "$HOME"/.config/repos/dotfiles
+sudo nixos-rebuild switch -I nixos-config=system/configuration.nix 
 popd

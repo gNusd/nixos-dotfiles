@@ -5,7 +5,7 @@
 # PS1="%B%{$fg[green]%}%n%{$fg[blue]%}@%{$fg[green]%}%M %{$fg[blue]%}%~%{$reset_color%} $%b
 
 # Load scripts, aliases and shortcuts if existent.
-DOTFILES="$HOME/.config/repos/nixos_dotfiles/users/gnus/dotfiles"
+DOTFILES="$HOME/.config/repos/dotfiles/users/gnus/dotfiles"
 [ -f "$DOTFILES/.config/zsh/promt.zsh" ] && source "$DOTFILES/.config/zsh/promt.zsh"
 [ -f "$DOTFILES/.config/zsh/complete.zsh" ] && source "$DOTFILES/.config/zsh/complete.zsh"
 [ -f "$DOTFILES/.config/zsh/vi-mode.zsh" ] && source "$DOTFILES/.config/zsh/vi-mode.zsh"
