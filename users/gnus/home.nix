@@ -51,7 +51,7 @@
     
     # editors
     vscode
-
+    
     # lsp
     python39Packages.python-lsp-server
     yarn-bash-completion
@@ -70,6 +70,7 @@
     signal-desktop
     neochat
     gimp
+    mpv
 
     # libaries
     libsForQt5.bismuth
@@ -85,17 +86,11 @@
     userEmail = "gnus@mailbox.org";
   };
   
-  programs.neovim = {
-    enable = true;
-    plugins = with pkgs; [ 
-      vimPlugins.vim-nix 
-      vimPlugins.vim-plug 
-    ];
-  };
 home.file = {
-   ".zshrc".text = ''
-    source .config/repos/dotfiles/.zshrc
-   '';
+  ".zshrc".source = ./dotfiles/.zshrc;
+  ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
+  ".config/vifm".source = ./dotfiles/.config/vifm;
+  ".config/zathura".source = ./dotfiles/.config/zathura;
 };
 
 }
