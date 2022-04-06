@@ -17,6 +17,3 @@ nmap <leader>gc :Gcommit<CR>
 " bind: "<leader>gd" desc: "git diff menu"
 nmap <leader>gd :Gdiffsplit<CR>
 
-" git blame line
-" bind: "<leader>G" desc: "toggle on and off git blame info on the line cursor is on"
-nnoremap <silent> <leader>G :ToggleBlameLine<CR>

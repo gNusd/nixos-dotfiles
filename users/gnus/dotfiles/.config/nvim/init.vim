@@ -73,25 +73,14 @@ else
 	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/plug-plugin.vim
 	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/alias.vim
 	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/ab.vim
-	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/completion.vim
 	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/nav.vim
 	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/git.vim
 	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/theme.vim
 	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/buffer.vim
 	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/term.vim
-	" source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/lsp.lua
-	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/cmp.lua
-	source $HOME/.config/repos/dotfiles/users/gnus/dotfiles/.config/nvim/config/treesitter.lua
 endif
 
 
-" Use LSP omni-completion
-autocmd Filetype rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
-autocmd Filetype sh setlocal omnifunc=v:lua.vim.lsp.omnifunc
-autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
-autocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
-autocmd Filetype yaml setlocal omnifunc=v:lua.vim.lsp.omnifunc
-" autocmd Filetype lua setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 " Required:
 filetype plugin indent on

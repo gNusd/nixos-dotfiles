@@ -97,7 +97,18 @@ home.file = {
   ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
   ".config/vifm".source = ./dotfiles/.config/vifm;
   ".config/zathura".source = ./dotfiles/.config/zathura;
-  ".config/user-dirs.dirs".source = ./dotfiles/.config/user-dirs.dirs;
+  /* ".config/user-dirs.dirs".source = ./dotfiles/.config/user-dirs.dirs; */
 };
+  xdg.userDirs = {
+    enable = false;
+    createDirectories = true;
 
+    # The XDG base directories. Most of my setup with this user will be my
+    # personal computer so I'll set them like so...
+    desktop = "$HOME/desktop";
+    download = "$HOME/downloads";
+    documents = "$HOME/nextcloud/dokument";
+    pictures = "$HOME/nextcloud/moln/bilder";
+    videos = "$HOME/nextcloud/moln/video";
+  };
 }
