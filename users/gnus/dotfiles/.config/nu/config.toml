@@ -1,7 +1,22 @@
-filesize_format = "B" # can be b, kb, kib, mb, mib, gb, gib, etc
-skip_welcome_message = true
+complete_from_path = true
+ctrlc_exit = false
 disable_table_indexes = false
+filesize_format = "B"
 nonzero_exit_errors = true
+path = [
+    "/home/gnus/bin", 
+    "/home/gnus/.cargo/bin", 
+    "//home/gnus/.local/bin", 
+    "//home/gnus/.config/repos/dotfiles/bin/", 
+    "/run/wrappers/bin", 
+    "/home/gnus/.nix-profile/bin", 
+    "/etc/profiles/per-user/gnus/bin", 
+    "/nix/var/nix/profiles/default/bin", 
+    "/run/current-system/sw/bin"
+    ]
+pivot_mode = "auto"
+rm_always_trash = true
+skip_welcome_message = true
 startup = [
     #shell aliases BEGIN
     "alias :q = exit",
@@ -11,68 +26,61 @@ startup = [
     #shell aliases END
 
     #git aliases BEGIN
-    "alias g = git",
     "def gl [] {git log --pretty=%h»¦«%s»¦«%aN»¦«%aE»¦«%aD -n 5 | lines | split column »¦« hash message user email date}",
     #git aliases END
 
     #other aliases BEGIN
-    "def nudown [] {fetch https://api.github.com/repos/nushell/nushell/releases | get assets | select name download_count}",
     "def nuver [] {version | pivot key value}",
     #other aliases BEGIN
     ]
-table_mode = "other" # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
-pivot_mode = "auto" # auto, always, never
-ctrlc_exit = false
-complete_from_path = true
-rm_always_trash = true
-# prompt = "echo $(ansi gb) $(pwd) $(ansi reset) \"(\" $(ansi cb) $(do -i { git rev-parse --abbrev-ref HEAD | str trim }) $(ansi reset) \")\" $(char newline) $(ansi yb) $(date --format \"%m/%d/%Y %I:%M:%S%.3f %p\" --raw) $(ansi reset) \"> \" | str collect"
+table_mode = "compact"
 
 [color_config]
-primitive_int = "green"
-primitive_decimal = "red"
-primitive_filesize = "ur"
-primitive_string = "pb"
-primitive_line = "yellow"
-primitive_columnpath = "cyan"
-primitive_pattern = "white"
-primitive_boolean = "green"
-primitive_date = "ru"
-primitive_duration = "blue"
-primitive_range = "purple"
-primitive_path = "yellow"
-primitive_binary = "cyan"
-separator_color = "purple"
-header_align = "l" # left|l, right|r, center|c
-header_color = "c" # green|g, red|r, blue|u, black|b, yellow|y, purple|p, cyan|c, white|w
+header_align = "l"
 header_bold = true
+header_color = "c"
 index_color = "rd"
 leading_trailing_space_bg = "white"
+primitive_binary = "cyan"
+primitive_boolean = "green"
+primitive_columnpath = "cyan"
+primitive_date = "ru"
+primitive_decimal = "red"
+primitive_duration = "blue"
+primitive_filesize = "ur"
+primitive_int = "green"
+primitive_line = "yellow"
+primitive_path = "yellow"
+primitive_pattern = "white"
+primitive_range = "purple"
+primitive_string = "pb"
+separator_color = "purple"
 
 [line_editor]
-max_history_size = 100000
-history_duplicates = "ignoreconsecutive" # alwaysadd,ignoreconsecutive
-history_ignore_space = false
-completion_type = "circular" # circular, list, fuzzy
-completion_prompt_limit = 100
-keyseq_timeout_ms = 500 # ms
-edit_mode = "vi" # vi, emacs
 auto_add_history = true
-bell_style = "none" # audible, none, visible
-color_mode = "enabled" # enabled, forced, disabled
+bell_style = "none"
+color_mode = "enabled"
+completion_prompt_limit = 100
+completion_type = "circular"
+edit_mode = "vi"
+history_duplicates = "ignoreconsecutive"
+history_ignore_space = false
+keyseq_timeout_ms = 500
+max_history_size = 100000
 tab_stop = 4
 
 [textview]
-term_width = "default" # "default" or a number
-tab_width = 4
 colored_output = true
-true_color = true
+grid = false
 header = true
 line_numbers = true
-grid = false
-vcs_modification_markers = true
-snip = true
-wrapping_mode = "NoWrapping" # Character, NoWrapping
-use_italics = true
-paging_mode = "QuitIfOneScreen" # Always, QuitIfOneScreen, Never
 pager = "bat"
+paging_mode = "QuitIfOneScreen"
+snip = true
+tab_width = 4
+term_width = "default"
 theme = "TwoDark"
+true_color = true
+use_italics = true
+vcs_modification_markers = true
+wrapping_mode = "NoWrapping"

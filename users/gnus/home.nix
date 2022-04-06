@@ -20,15 +20,15 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    
+
     curl
     exa
     xclip
     vifm
     fwupd
-    bat 
-    dust 
-    fd 
+    bat
+    dust
+    fd
     ripgrep
     tokei
     bottom
@@ -52,10 +52,10 @@
 
     # themes
     kde-gruvbox
-    
+
     # editors
     vscode
-    
+
     # lsp
     python39Packages.python-lsp-server
     yarn-bash-completion
@@ -63,14 +63,14 @@
     lua53Packages.lua-lsp
     nodePackages.dockerfile-language-server-nodejs
     rnix-lsp
-    
+
     # gui
     vivaldi
     nextcloud-client
     bitwarden
     virt-manager
     mullvad-vpn
-    tdesktop  
+    tdesktop
     signal-desktop
     neochat
     gimp
@@ -89,7 +89,7 @@
     userName = "gnus";
     userEmail = "gnus@mailbox.org";
   };
-  
+
 home.file = {
   ".zshrc".source = ./dotfiles/.zshrc;
   ".tmux.conf".source = ./dotfiles/.tmux.conf;
@@ -97,7 +97,6 @@ home.file = {
   ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
   ".config/vifm".source = ./dotfiles/.config/vifm;
   ".config/zathura".source = ./dotfiles/.config/zathura;
-  /* ".config/user-dirs.dirs".source = ./dotfiles/.config/user-dirs.dirs; */
 };
   xdg.userDirs = {
     enable = false;
