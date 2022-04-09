@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 
+let unstable = import <nixos-unstable> {};
+in
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -34,11 +36,14 @@
     bottom
     bandwhich
     delta
+    neofetch
+    freshfetch
+    htop
 
 
     # shells
     ## nushell
-    nushell
+    unstable.nushell
 
     ## zsh
     zsh

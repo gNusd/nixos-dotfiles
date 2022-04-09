@@ -33,7 +33,7 @@ startup = [
     "def nuver [] {version | pivot key value}",
     #other aliases BEGIN
     ]
-table_mode = "compact"
+table_mode = "rounded"
 
 [color_config]
 header_align = "l"
