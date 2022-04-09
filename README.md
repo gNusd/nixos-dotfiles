@@ -76,8 +76,8 @@ home-manager
 Adding support for installing packages from unstable channel to home-manager config. Add the channel and update it.
 
 ```
-sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-sudo nix-channel --update
+nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+nix-channel --update
 ```
 
 Add unstable channel to home.nix
@@ -85,8 +85,9 @@ Add unstable channel to home.nix
 ```
 {config, pkgs, ...}:
 
-*let unstable = import <nixos-unstable> {};*
-*in*
+# ADD THESE TWO LINES TO HOME.NIX
+let unstable = import <nixos-unstable> {};
+in
 
 {
   # Home Manager ......
