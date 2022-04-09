@@ -74,7 +74,7 @@ Add to the configuration.nix
       
       ./hardware-configuration.nix
     ];
-
+```
 
 The WiFi card was autodetected. WiFi configuration with `nmcli`.
 ```
@@ -91,6 +91,7 @@ Power management and monitoring is done using `tlp` and `upower`.
     services.upower.enable = true;
 ```
 #### discrete graphics 
+[PRIME](https://discourse.nixos.org/t/cant-use-nvidia-prime-with-laptop/6767)
 offload mode
 
 **Available since 20.09** (see [#66601](https://github.com/NixOS/nixpkgs/pull/66601)).
