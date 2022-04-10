@@ -80,6 +80,7 @@ in
 #########
 ## X11 ##
 #########
+
   # Enable the X11 windowing system with the Plasma 5 Desktop Environment and configure keymap in X11
   services = {
     xserver = {
