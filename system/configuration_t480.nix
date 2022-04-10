@@ -150,7 +150,7 @@ in
   services.tlp.enable = true;
   
   # Enable auto-cpufreq
-  services.auto-cpufreq.enable
+  services.auto-cpufreq.enable = true;
   
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
