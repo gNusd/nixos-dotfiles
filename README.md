@@ -82,13 +82,10 @@ The WiFi card was autodetected. WiFi configuration with `nmcli`.
     networking.networkmanager.enable = true; # Enable network manager
 ```
 
-Power management and monitoring is done using `tlp` and `upower`.
+Power management and monitoring is done using `tlp` 
 ```
   # For thinkpad
     services.tlp.enable = true;
-    
-  # Battery power management
-    services.upower.enable = true;
 ```
 #### discrete graphics 
 [PRIME](https://discourse.nixos.org/t/cant-use-nvidia-prime-with-laptop/6767)
@@ -100,9 +97,7 @@ In this mode the Nvidia card is only activated on demand, however a Nvidia card 
 
 Offload mode is enabled by running your program(s) with specific environment variables, i.e., here's a sample script called `nvidia-offload` that you can run wrapped around your exacutable, for example `nvidia-offload glxgears`:
 
-```
 nvidia-offload
-```
 
 ```
 export __NV_PRIME_RENDER_OFFLOAD=1
