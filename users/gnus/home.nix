@@ -80,6 +80,7 @@ in
     neochat
     gimp
     mpv
+    transmission-qt
 
     # libaries
     libsForQt5.bismuth
