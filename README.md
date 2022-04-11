@@ -67,18 +67,6 @@ reboot
 ```
 ## Thinkpad T480
 
-Add to the configuration.nix
-```
-
-{ config, pkgs, ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-```
-
 The WiFi card was autodetected. WiFi configuration with `nmcli`.
 ```
  # /etc/nixos/configuration.nix
