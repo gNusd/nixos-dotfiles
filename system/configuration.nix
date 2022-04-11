@@ -4,32 +4,60 @@
 
 { config, pkgs, ... }:
 
+let unstable = import <nixos-unstable> {};
+    nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec -a "$0" "$@"
+  '';
+in
+
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
+  nixpkgs.config.allowUnfree = true;
+
+##########
+## BOOT ##
+##########
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+################
+## NETWORKING ##
+################
 
-  # Set your time zone.
-  time.timeZone = "Europe/Copenhagen";
-
+  networking.hostName = "Voight-Kampff"; # Define your hostname.
+  networking.networkmanager.enable = true;
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.ens3.useDHCP = true;
+  networking.interfaces.enp0s20f0u4u2.useDHCP = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Open ports in the firewall.
+  networking.firewall.allowedTCPPorts = [ 22 1714 1716 1764 ];
+  networking.firewall.allowedUDPPorts = [ 22 1714 1716 1764 ];
+  networking.firewall.enable = true;
+  networking.firewall.allowPing = false;
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+###################
+## USER & LOCALS ##
+###################
+
+  # Set your time zone.
+  time.timeZone = "Europe/Copenhagen";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "sv_SE.UTF-8";
@@ -38,74 +66,82 @@
     keyMap = "sv-latin1";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.gnus = {
+    isNormalUser = true;
+    initialPassword = "password";
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.nushell;
+  };
+
+#########
+## X11 ##
+#########
+
+  # Enable the X11 windowing system with the Plasma 5 Desktop Environment and configure keymap in X11
+  services = {
+    xserver = {
+      enable = true;
+      exportConfiguration = true;
+      layout = "se";
+      videoDrivers = [ "nvidia" ];
+      displayManager.sddm = {
+        enable = true;
+      };
+      desktopManager.plasma5.enable = true;
+    };
+
+  };
 
 
-  # Enable the Plasma 5 Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+##############
+## HARDWARE ##
+##############
 
-
-  # Configure keymap in X11
-  services.xserver.layout = "se";
-  # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
+  # Enable prime nvidia
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+      prime = {
+        offload.enable = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
+ };
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.gnus = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.nushell;
-  };
+##############
+## SOFTWARE ##
+##############
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # cli
     git
     wget
-
-    # editors
+    unstable.nushell
     neovim
-
-    # gui
     firefox
   ];
-  nixpkgs.config.allowUnfree = true;
 
-  # List services that you want to enable:
-  # programs.zsh = {
-  #   enable = true;
-  #   enableCompletion = true;
-  # };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
+##############
+## SERVICES ##
+##############
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # Enable tlp battery saving
+  services.tlp.enable = true;
+
+  # Enable auto-cpufreq
+  services.auto-cpufreq.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

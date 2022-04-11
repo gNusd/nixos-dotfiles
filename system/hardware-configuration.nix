@@ -5,40 +5,45 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "ehci_pci" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/mapper/NIXROOT";
+    { device = "/dev/disk/by-uuid/1bf1152a-1973-46e9-b758-e0c69fdaf53f";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
-  boot.initrd.luks.devices."NIXROOT".device = "/dev/disk/by-uuid/55bf544e-1941-428a-81da-e5d14e3c6dcb";
+  boot.initrd.luks.devices."NIXROOT".device = "/dev/disk/by-uuid/92e24162-7961-4335-866b-6b197eb95852";
 
   fileSystems."/home" =
-    { device = "/dev/mapper/NIXROOT";
+    { device = "/dev/disk/by-uuid/1bf1152a-1973-46e9-b758-e0c69fdaf53f";
       fsType = "btrfs";
       options = [ "subvol=@HOME" ];
     };
 
   fileSystems."/.snapshots" =
-    { device = "/dev/mapper/NIXROOT";
+    { device = "/dev/disk/by-uuid/1bf1152a-1973-46e9-b758-e0c69fdaf53f";
       fsType = "btrfs";
       options = [ "subvol=.snapshots" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5BEB-39B8";
+    { device = "/dev/disk/by-uuid/B3AB-CAA7";
       fsType = "vfat";
     };
 
-  swapDevices = [ ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/1a687105-f03d-467a-928b-833cd9d6f686"; }
+    ];
 
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  # high-resolution display
+  hardware.video.hidpi.enable = lib.mkDefault true;
 }
