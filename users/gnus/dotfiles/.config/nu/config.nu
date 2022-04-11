@@ -22,7 +22,7 @@ let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
 # the state of the prompt
 let-env PROMPT_INDICATOR = "〉"
 let-env PROMPT_INDICATOR_VI_INSERT = "〉"
-let-env PROMPT_INDICATOR_VI_NORMAL = ": "
+let-env PROMPT_INDICATOR_VI_NORMAL = ":〉"
 let-env PROMPT_MULTILINE_INDICATOR = "::: "
 
 # Specifies how environment variables are:
@@ -53,6 +53,26 @@ let-env NU_LIB_DIRS = [
 let-env NU_PLUGIN_DIRS = [
     ($nu.config-path | path dirname | path join 'plugins')
 ]
+
+let-env PAGER = "bat"
+let-env EDITOR = "nvim"
+
+# Set the path 
+let-env PATH = ["/run/wrappers/bin",
+                "/home/gnus/.nix-profile/bin",
+                "/etc/profiles/per-user/gnus/bin",
+                "/nix/var/nix/profiles/default/bin",
+                "/run/current-system/sw/bin",    
+                "/home/gnus/.config/repos/dotfiles/bin"
+                 ]
+                 
+# aliases 
+alias vim = nvim
+alias vi = nvim
+alias :q = exit
+alias ll = ls -l
+alias la = ls -a
+alias dotfiles = "cd ~/.config/repos/dotfiles"
 
 module completions {
   # Custom completions for external commands (those outside of Nushell)
@@ -124,6 +144,7 @@ module completions {
   ]
 }
 
+
 # Get just the extern definitions without the custom completion commands
 use completions *
 
@@ -185,7 +206,8 @@ let $config = {
   filesize_metric: false
   table_mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
   use_ls_colors: true
-  rm_always_trash: false
+  rm_always_trash: true
+
   color_config: $default_theme
   use_grid_icons: true
   footer_mode: "25" # always, never, number_of_rows, auto

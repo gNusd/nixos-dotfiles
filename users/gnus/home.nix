@@ -46,6 +46,7 @@
 
     # editors
     vscode
+	qownnotes
 
     # lsp
     python39Packages.python-lsp-server
@@ -62,11 +63,11 @@
     virt-manager
     mullvad-vpn
     tdesktop
-    signal-desktop
     neochat
     gimp
     mpv
     transmission-qt
+	zathura
 
     # libaries
     libsForQt5.bismuth
@@ -83,8 +84,8 @@
   };
 
 home.file = {
-  ".zshrc".source = ./dotfiles/.zshrc;
-  ".tmux.conf".source = ./dotfiles/.tmux.conf;
+  # ".zshrc".source = ./dotfiles/.zshrc;
+  # ".tmux.conf".source = ./dotfiles/.tmux.conf;
   ".config/nushell/config.nu".source = ./dotfiles/.config/nu/config.nu;
   ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
   ".config/vifm".source = ./dotfiles/.config/vifm;

@@ -44,8 +44,8 @@ in
   networking.interfaces.enp0s20f0u4u2.useDHCP = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 1714 1716 1764 ];
-  networking.firewall.allowedUDPPorts = [ 22 1714 1716 1764 ];
+  networking.firewall.allowedTCPPorts = [ 22222 22 1714 1716 1764 ];
+  networking.firewall.allowedUDPPorts = [ 22222 22 1714 1716 1764 ];
   networking.firewall.enable = true;
   networking.firewall.allowPing = false;
 
@@ -115,6 +115,9 @@ in
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
+
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
 
 ##############
 ## SOFTWARE ##
