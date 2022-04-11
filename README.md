@@ -40,11 +40,11 @@ btrfs subvolume create /mnt/.snapshots
 btrfs subvolume list /mnt
 
 umount /mnt
-mount /dev/mapper/NIXROOT subvolid=# /mnt
+mount /dev/mapper/NIXROOT -o subvolid=# /mnt
 cd /mnt
 mkdir boot home .snapshots
-mount /dev/mapper/NIXROOT subvolid=# /mnt/home
-mount /dev/mapper/NIXROOT subvolid=# /mnt/.snapshots
+mount /dev/mapper/NIXROOT -o subvolid=# /mnt/home
+mount /dev/mapper/NIXROOT -o subvolid=# /mnt/.snapshots
 mount /dev/sda# /mnt/boot
 ```
 
@@ -53,8 +53,14 @@ Generate configuration.nix and hardware-configuration.nix
 ```
 nixos-generate-configuration --root /mnt
 ```
-Check the configuration.nix and install system with:
 
+Enabling the unstable channel
+```
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+sudo nix-channel --update
+```
+
+Check the configuration.nix and install system with:
 ```
 nixos-install
 reboot
@@ -69,9 +75,6 @@ Add to the configuration.nix
 {
   imports =
     [ # Include the results of the hardware scan.
-      
-      <nixos-hardware/lenovo/thinkpad/t480>
-      
       ./hardware-configuration.nix
     ];
 ```
@@ -82,12 +85,12 @@ The WiFi card was autodetected. WiFi configuration with `nmcli`.
     networking.networkmanager.enable = true; # Enable network manager
 ```
 
-Power management and monitoring is done using `tlp` 
+Power management and monitoring is done using `tlp`
 ```
   # For thinkpad
     services.tlp.enable = true;
 ```
-#### discrete graphics 
+#### discrete graphics
 [PRIME](https://discourse.nixos.org/t/cant-use-nvidia-prime-with-laptop/6767)
 offload mode
 
@@ -107,7 +110,7 @@ export __VK_LAYER_NV_optimus=NVIDIA_only
 exec -a "$0" "$@"
 ```
 
-  
+
 To configure Offload mode, you firstly you need to enable the proprietary Nvidia driver:
 
 ```
@@ -127,7 +130,7 @@ Note that on **certain laptops** and/or if you are using a custom kernel version
 /etc/nixos/configuration.nix
 ```
 
- 
+
 ```
 {
   hardware.nvidia.modesetting.enable = true;
@@ -135,7 +138,7 @@ Note that on **certain laptops** and/or if you are using a custom kernel version
   // ...
 ```
 
-  
+
 Then you need to setup the Bus ID's of the cards as seen below.
 
 _Note: Bus ID is important and needs to be formatted properly_

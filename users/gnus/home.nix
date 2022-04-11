@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
-let unstable = import <nixos-unstable> {};
-in
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -40,20 +38,8 @@ in
     freshfetch
     htop
 
-
-    # shells
-    ## nushell
-    unstable.nushell
-
-    ## zsh
-    zsh
-    zsh-autosuggestions
-    zsh-completions
-    zsh-fast-syntax-highlighting
-
     # fonts
     source-code-pro
-    # nerdfonts
 
     # themes
     kde-gruvbox
@@ -99,7 +85,7 @@ in
 home.file = {
   ".zshrc".source = ./dotfiles/.zshrc;
   ".tmux.conf".source = ./dotfiles/.tmux.conf;
-  ".config/nu/config.toml".source = ./dotfiles/.config/nu/config.toml;
+  ".config/nushell/config.nu".source = ./dotfiles/.config/nu/config.nu;
   ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
   ".config/vifm".source = ./dotfiles/.config/vifm;
   ".config/zathura".source = ./dotfiles/.config/zathura;
