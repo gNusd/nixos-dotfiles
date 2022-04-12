@@ -69,6 +69,11 @@
 
     # libaries
     libsForQt5.bismuth
+    libsForQt5.korganizer
+    libsForQt5.libkdepim
+    libsForQt5.pimcommon
+    libsForQt5.pim-sieve-editor
+    libsForQt5.pim-data-exporter
     libsForQt5.yakuake
     libsForQt5.kdeconnect-kde
     libsForQt5.kmail
