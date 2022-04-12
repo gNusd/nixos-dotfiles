@@ -35,9 +35,11 @@
     delta
     neofetch
     htop
+    starship
 
     # fonts
     source-code-pro
+    nerdfonts
 
     # themes
     kde-gruvbox
@@ -67,7 +69,7 @@
     transmission-qt
 	  zathura
 
-    # libaries
+    # kde plasma apps
     libsForQt5.bismuth
     libsForQt5.korganizer
     libsForQt5.libkdepim
@@ -77,6 +79,8 @@
     libsForQt5.yakuake
     libsForQt5.kdeconnect-kde
     libsForQt5.kmail
+    
+    # libaries
     vivaldi-widevine
     vivaldi-ffmpeg-codecs
   ];
