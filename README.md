@@ -113,3 +113,14 @@ in
 ```
 
 In the packages section add unstable. to the package you want to install from the unstable channel.
+
+I use `home.file` to symlink configuration files. I only have a only small collection of dotfiles so it is manageble. 
+```
+home.file = {
+  ".config/nushell/config.nu".source = ./dotfiles/.config/nu/config.nu;
+  ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
+  ".config/vifm".source = ./dotfiles/.config/vifm;
+  ".config/zathura".source = ./dotfiles/.config/zathura;
+  ".config/tridactyl".source = ./dotfiles/.config/tridactyl;
+};
+```
