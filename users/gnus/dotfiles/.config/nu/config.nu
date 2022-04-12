@@ -64,15 +64,21 @@ let-env PATH = ["/run/wrappers/bin",
                 "/nix/var/nix/profiles/default/bin",
                 "/run/current-system/sw/bin",
                 "/home/gnus/.config/repos/dotfiles/bin"
+                "/home/gnus/.local/bin"
                  ]
 
 # aliases
 alias vim = nvim
 alias vi = nvim
+alias suvi = sudo -e
 alias :q = exit
 alias ll = ls -l
 alias la = ls -a
 alias dotfiles = cd "~/.config/repos/dotfiles"
+alias bin = cd "~/.local/bin"
+alias dl = cd "~/downloads"
+alias iso = cd "~/iso"
+
 
 module completions {
   # Custom completions for external commands (those outside of Nushell)
