@@ -89,6 +89,7 @@ home.file = {
   ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
   ".config/vifm".source = ./dotfiles/.config/vifm;
   ".config/zathura".source = ./dotfiles/.config/zathura;
+  ".config/tridactyl".source = ./dotfiles/.config/tridactyl;
 };
   xdg.userDirs = {
     enable = false;
