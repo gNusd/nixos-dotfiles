@@ -17,6 +17,8 @@ in
 {
   imports =
     [
+      # Configuration for the thinkpad t480
+      <nixos-hardware/lenovo/thinkpad/t480>
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];

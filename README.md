@@ -65,6 +65,11 @@ Replace the genereted `configuration.nix` with the one in `system/configuration.
 Enabling the unstable channel
 ```
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+```
+
+Add and update nixos-hardware channel
+```
+sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
 sudo nix-channel --update
 ```
 
