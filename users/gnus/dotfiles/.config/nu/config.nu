@@ -57,22 +57,22 @@ let-env NU_PLUGIN_DIRS = [
 let-env PAGER = "bat"
 let-env EDITOR = "nvim"
 
-# Set the path 
+# Set the path
 let-env PATH = ["/run/wrappers/bin",
                 "/home/gnus/.nix-profile/bin",
                 "/etc/profiles/per-user/gnus/bin",
                 "/nix/var/nix/profiles/default/bin",
-                "/run/current-system/sw/bin",    
+                "/run/current-system/sw/bin",
                 "/home/gnus/.config/repos/dotfiles/bin"
                  ]
-                 
-# aliases 
+
+# aliases
 alias vim = nvim
 alias vi = nvim
 alias :q = exit
 alias ll = ls -l
 alias la = ls -a
-alias dotfiles = "cd ~/.config/repos/dotfiles"
+alias dotfiles = cd "~/.config/repos/dotfiles"
 
 module completions {
   # Custom completions for external commands (those outside of Nushell)

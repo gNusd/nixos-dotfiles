@@ -22,7 +22,6 @@
   home.packages = with pkgs; [
 
     curl
-    exa
     xclip
     vifm
     fwupd
@@ -35,7 +34,6 @@
     bandwhich
     delta
     neofetch
-    freshfetch
     htop
 
     # fonts
@@ -46,7 +44,7 @@
 
     # editors
     vscode
-	qownnotes
+	  qownnotes
 
     # lsp
     python39Packages.python-lsp-server
@@ -67,10 +65,11 @@
     gimp
     mpv
     transmission-qt
-	zathura
+	  zathura
 
     # libaries
     libsForQt5.bismuth
+    libsForQt5.yakuake
     libsForQt5.kdeconnect-kde
     libsForQt5.kmail
     vivaldi-widevine
