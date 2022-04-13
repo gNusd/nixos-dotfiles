@@ -30,7 +30,10 @@ in
 ##########
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+      enable = true;
+      configurationLimit = 15;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
 ################
@@ -90,7 +93,10 @@ in
       displayManager.sddm = {
         enable = true;
       };
-      desktopManager.plasma5.enable = true;
+      desktopManager.plasma5 = {
+        enable = true;
+        runUsingSystemd = true; 
+      };
     };
 
   };
