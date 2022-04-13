@@ -1,10 +1,14 @@
 # Nushell Config File
+let-env STARSHIP_SHELL = "nu"
 
 def create_left_prompt [] {
-    let path_segment = ($env.PWD)
-
-    $path_segment
+    starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
 }
+# def create_left_prompt [] {
+#    let path_segment = ($env.PWD)
+#
+#   $path_segment
+#}
 
 def create_right_prompt [] {
     let time_segment = ([
