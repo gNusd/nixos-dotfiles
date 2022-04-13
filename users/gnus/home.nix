@@ -68,6 +68,7 @@
     mpv
     transmission-qt
 	  zathura
+    veracrypt
 
     # kde plasma apps
     libsForQt5.bismuth
