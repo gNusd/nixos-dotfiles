@@ -1,8 +1,14 @@
-# my installation
+# nixos-dotfiles
 
-I use gtp partition scheme and btrfs on the main partition and luks to encrypt my main partition.
+This repo contains both my installation scripts for nixos and my dotfiles. My dotfiles are located [here](users/gnus/dotfiles).
 
-## Pre-installation
+## my installation
+
+I update this file when I make changes to the `configuration.nix` or anything else in the installation or rebuild process. 
+
+### Pre-installation
+
+I use gtp partition scheme and btrfs on the main partition and luks to encrypt it. You can also use another file system like ext4 if you want to then just ignore the subvolume part of the discription. 
 
 ```
 fdisk /dev/path
@@ -79,7 +85,7 @@ nixos-install
 reboot
 ```
 
-## Post-installation
+### Post-installation
 
 home-manager
 
@@ -114,7 +120,7 @@ in
 
 In the packages section add unstable. to the package you want to install from the unstable channel.
 
-I use `home.file` to symlink configuration files. I only have a only small collection of dotfiles so it is manageble. 
+I use `home.file` to symlink configuration files. I only have a only small collection of dotfiles so it is manageble. The dotfiles that are symlinked are readonly copies of the source file. This means that if you change anything in the source file it will not take effect in the symlinked file, you will have to run `home-manager switch` to make the changes take effect.  
 ```
 home.file = {
   ".config/nushell/config.nu".source = ./dotfiles/.config/nu/config.nu;

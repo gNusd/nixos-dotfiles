@@ -113,4 +113,5 @@ home.file = {
     pictures = "$HOME/nextcloud/moln/bilder";
     videos = "$HOME/nextcloud/moln/video";
   };
+
 }

@@ -30,32 +30,35 @@ in
 ##########
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot = {
+  boot.loader = {
+    systemd-boot = {
       enable = true;
       configurationLimit = 15;
+    };
+    efi.canTouchEfiVariables = true;
   };
-  boot.loader.efi.canTouchEfiVariables = true;
-
+  
 ################
 ## NETWORKING ##
 ################
 
-  networking.hostName = "Voight-Kampff"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking = { 
+    hostName = "Voight-Kampff"; # Define your hostname.
+    networkmanager.enable = true;
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp0s20f0u4u2.useDHCP = true;
+    useDHCP = false;
+    interfaces.enp0s20f0u4u2.useDHCP = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22222 22 1714 1716 1764 ];
-  networking.firewall.allowedUDPPorts = [ 22222 22 1714 1716 1764 ];
-  networking.firewall.enable = true;
-  networking.firewall.allowPing = false;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 22222 22 1714 1716 1764 ];
+      allowedUDPPorts = [ 22222 22 1714 1716 1764 ];
+      allowPing = false;
+    };
+  };
 
 ###################
 ## USER & LOCALS ##
@@ -75,7 +78,7 @@ in
   users.users.gnus = {
     isNormalUser = true;
     initialPassword = "password";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "libvirtd" ];
     shell = pkgs.nushell;
   };
 
@@ -92,15 +95,15 @@ in
       videoDrivers = [ "nvidia" ];
       displayManager.sddm = {
         enable = true;
+        autoNumlock = true; 
       };
       desktopManager.plasma5 = {
         enable = true;
         runUsingSystemd = true; 
       };
+      libinput.enable = true;
     };
-
   };
-
 
 ##############
 ## HARDWARE ##
@@ -116,16 +119,12 @@ in
         nvidiaBusId = "PCI:1:0:0";
       };
     };
+    pulseaudio.enable = true;
+    bluetooth.enable = true;
  };
+
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-
-  # Enable bluetooth
-  hardware.bluetooth.enable = true;
 
 ##############
 ## SOFTWARE ##
@@ -141,19 +140,39 @@ in
     firefox
   ];
 
+####################
+## VIRTUALISATION ##
+####################
+
+virtualisation.libvirtd.enable = true;
+programs.dconf.enable = true;
+
 ##############
 ## SERVICES ##
 ##############
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # Enable services 
+  services = {
+    openssh = {
+      enable = true;
+      permitRootLogin = "no";
+    };
+    tlp.enable = true;
+    auto-cpufreq.enable = true;
+    printing.enable = true;
+  };
 
-  # Enable tlp battery saving
-  services.tlp.enable = true;
+#############################
+## UPDATES AND MAINTANANCE ##
+#############################
 
-  # Enable auto-cpufreq
-  services.auto-cpufreq.enable = true;
+  system.autoUpgrade = {
+    enable = true; 
+    channel = "https://nixos.org/channels/nixos-21.11";
+  };
 
+  nix.autoOptimiseStore = true;
+  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
