@@ -99,7 +99,7 @@ in
       };
       desktopManager.plasma5 = {
         enable = true;
-        runUsingSystemd = true; 
+        #runUsingSystemd = true; 
       };
       libinput.enable = true;
     };
@@ -119,8 +119,19 @@ in
         nvidiaBusId = "PCI:1:0:0";
       };
     };
-    pulseaudio.enable = true;
-    bluetooth.enable = true;
+    pulseaudio = {
+      enable = true;
+      extraModules = [ pkgs.pulseaudio-modules-bt ];
+      package = pkgs.pulseaudioFull;
+    };
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
+    };
  };
 
   # Enable sound.
@@ -145,7 +156,6 @@ in
 ####################
 
 virtualisation.libvirtd.enable = true;
-programs.dconf.enable = true;
 
 ##############
 ## SERVICES ##
@@ -172,7 +182,16 @@ programs.dconf.enable = true;
   };
 
   nix.autoOptimiseStore = true;
-  
+
+############
+## FLAKES ##
+############
+
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flakes";
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

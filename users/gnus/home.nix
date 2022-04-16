@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let 
+  unstable = import <nixos-unstable> {};
+
+in
+
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -45,8 +50,8 @@
     kde-gruvbox
 
     # editors
-    vscode
-	  qownnotes
+    unstable.vscode
+    qownnotes
 
     # lsp
     python39Packages.python-lsp-server
@@ -67,7 +72,7 @@
     gimp
     mpv
     transmission-qt
-	  zathura
+    zathura
     veracrypt
 
     # kde plasma apps
@@ -113,5 +118,4 @@ home.file = {
     pictures = "$HOME/nextcloud/moln/bilder";
     videos = "$HOME/nextcloud/moln/video";
   };
-
 }
