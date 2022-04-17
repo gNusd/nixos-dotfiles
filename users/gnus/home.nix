@@ -47,6 +47,7 @@ in
           "terminal.integrated.fontFamily" = "Source Code Pro";
           "vscode-neovim.neovimExecutablePaths.linux" = "/nix/store/193bwdb99bz3aqsqmmsc1s5gzw40qnc3-system-path/bin/nvim";
           "keyboard.dispatch" = "keyCode";
+          "git.path" = "/nix/store/n7l3hx4aijcis2pbcbn3gvhh9cv78bly-home-manager-path/bin/git";
         };
     };
   };
