@@ -37,12 +37,12 @@ in
     };
     efi.canTouchEfiVariables = true;
   };
-  
+
 ################
 ## NETWORKING ##
 ################
 
-  networking = { 
+  networking = {
     hostName = "Voight-Kampff"; # Define your hostname.
     networkmanager.enable = true;
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -95,11 +95,11 @@ in
       videoDrivers = [ "nvidia" ];
       displayManager.sddm = {
         enable = true;
-        autoNumlock = true; 
+        autoNumlock = true;
       };
       desktopManager.plasma5 = {
         enable = true;
-        #runUsingSystemd = true; 
+        #runUsingSystemd = true;
       };
       libinput.enable = true;
     };
@@ -126,6 +126,8 @@ in
     };
     bluetooth = {
       enable = true;
+	  hsphfpd.enable = true;
+	  powerOnBoot = true;
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
@@ -161,7 +163,7 @@ virtualisation.libvirtd.enable = true;
 ## SERVICES ##
 ##############
 
-  # Enable services 
+  # Enable services
   services = {
     openssh = {
       enable = true;
@@ -172,12 +174,18 @@ virtualisation.libvirtd.enable = true;
     printing.enable = true;
   };
 
+##############
+## SECURITY ##
+##############
+
+  security.pam.services.gnus.sshAgentAuth = true;
+
 #############################
 ## UPDATES AND MAINTANANCE ##
 #############################
 
   system.autoUpgrade = {
-    enable = true; 
+    enable = true;
     channel = "https://nixos.org/channels/nixos-21.11";
   };
 

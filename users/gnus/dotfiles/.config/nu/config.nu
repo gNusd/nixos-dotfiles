@@ -79,6 +79,7 @@ alias :q = exit
 alias ll = ls -l
 alias la = ls -a
 alias dotfiles = cd "~/.config/repos/dotfiles"
+alias repos = cd "~/.config/repos"
 alias bin = cd "~/.local/bin"
 alias dl = cd "~/downloads"
 alias iso = cd "~/iso"

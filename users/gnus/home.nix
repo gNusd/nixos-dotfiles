@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-let 
+let
   unstable = import <nixos-unstable> {};
 
 in
@@ -22,7 +22,34 @@ in
   home.stateVersion = "21.11";
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+
+  programs = {
+    git = {
+      enable = true;
+      userName = "gnus";
+      userEmail = "gnus@mailbox.org";
+    };
+    home-manager.enable = true;
+    vscode = {
+      enable = true;
+      package = pkgs.vscode;
+      extensions = with pkgs.vscode-extensions; [
+        asvetliakov.vscode-neovim
+        yzhang.markdown-all-in-one
+        ms-python.python
+        davidlday.languagetool-linter
+        ms-vscode-remote.remote-ssh
+        jnoortheen.nix-ide
+        redhat.vscode-yaml
+        vspacecode.whichkey
+        ];
+        userSettings = {
+          "terminal.integrated.fontFamily" = "Source Code Pro";
+          "vscode-neovim.neovimExecutablePaths.linux" = "/nix/store/193bwdb99bz3aqsqmmsc1s5gzw40qnc3-system-path/bin/nvim";
+          "keyboard.dispatch" = "keyCode";
+        };
+    };
+  };
 
   home.packages = with pkgs; [
 
@@ -50,7 +77,6 @@ in
     kde-gruvbox
 
     # editors
-    unstable.vscode
     qownnotes
 
     # lsp
@@ -76,6 +102,8 @@ in
     veracrypt
 
     # kde plasma apps
+    libsForQt5.ksshaskpass
+    libsForQt5.qtkeychain
     libsForQt5.bismuth
     libsForQt5.korganizer
     libsForQt5.libkdepim
@@ -85,27 +113,22 @@ in
     libsForQt5.yakuake
     libsForQt5.kdeconnect-kde
     libsForQt5.kmail
-    
+
     # libaries
     vivaldi-widevine
     vivaldi-ffmpeg-codecs
   ];
 
-  programs.git = {
-    enable = true;
-    userName = "gnus";
-    userEmail = "gnus@mailbox.org";
+  home.file = {
+    # ".zshrc".source = ./dotfiles/.zshrc;
+    # ".tmux.conf".source = ./dotfiles/.tmux.conf;
+    ".config/nushell/config.nu".source = ./dotfiles/.config/nu/config.nu;
+    ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
+    ".config/vifm".source = ./dotfiles/.config/vifm;
+    ".config/zathura".source = ./dotfiles/.config/zathura;
+    ".config/tridactyl".source = ./dotfiles/.config/tridactyl;
   };
 
-home.file = {
-  # ".zshrc".source = ./dotfiles/.zshrc;
-  # ".tmux.conf".source = ./dotfiles/.tmux.conf;
-  ".config/nushell/config.nu".source = ./dotfiles/.config/nu/config.nu;
-  ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
-  ".config/vifm".source = ./dotfiles/.config/vifm;
-  ".config/zathura".source = ./dotfiles/.config/zathura;
-  ".config/tridactyl".source = ./dotfiles/.config/tridactyl;
-};
   xdg.userDirs = {
     enable = false;
     createDirectories = true;
