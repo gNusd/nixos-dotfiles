@@ -149,6 +149,7 @@ in
     git
     wget
     unstable.nushell
+    bash
     neovim
     firefox
   ];
@@ -172,6 +173,7 @@ virtualisation.libvirtd.enable = true;
     tlp.enable = true;
     auto-cpufreq.enable = true;
     printing.enable = true;
+    fwupd.enable = true;
   };
 
 ##############
@@ -179,6 +181,7 @@ virtualisation.libvirtd.enable = true;
 ##############
 
   security.pam.services.gnus.sshAgentAuth = true;
+  services.gnome.gnome-keyring.enable = true;
 
 #############################
 ## UPDATES AND MAINTANANCE ##
@@ -195,10 +198,10 @@ virtualisation.libvirtd.enable = true;
 ## FLAKES ##
 ############
 
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flakes";
-  };
+  # nix = {
+  #   package = pkgs.nixFlakes;
+  #   extraOptions = "experimental-features = nix-command flakes";
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

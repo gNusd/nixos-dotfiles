@@ -2,7 +2,6 @@
 
 let
   unstable = import <nixos-unstable> {};
-
 in
 
 {
@@ -29,6 +28,15 @@ in
       userName = "gnus";
       userEmail = "gnus@mailbox.org";
     };
+    starship = {
+      enable = true;
+      enableBashIntegration = true;
+      settings = {
+        add_newline = false;
+        scan_timeout = 10;
+      };
+    };
+    gpg.enable = true;
     home-manager.enable = true;
     vscode = {
       enable = true;
@@ -42,16 +50,25 @@ in
         jnoortheen.nix-ide
         redhat.vscode-yaml
         vspacecode.whichkey
+        mads-hartmann.bash-ide-vscode
         ];
         userSettings = {
           "terminal.integrated.fontFamily" = "Source Code Pro";
-          "vscode-neovim.neovimExecutablePaths.linux" = "/nix/store/193bwdb99bz3aqsqmmsc1s5gzw40qnc3-system-path/bin/nvim";
+          "vscode-neovim.neovimExecutablePaths.linux" = "${pkgs.neovim}/bin/nvim";
           "keyboard.dispatch" = "keyCode";
-          "git.path" = "/nix/store/n7l3hx4aijcis2pbcbn3gvhh9cv78bly-home-manager-path/bin/git";
+          "git.path" = "${pkgs.git}/bin/git";
+          "path-intellisense.autoSlashAfterDirectory" = true;
+          "path-intellisense.showHiddenFiles" = true;
+          "security.workspace.trust.untrustedFiles" = "open";
+          "editor.fontSize" = 12;
+          "editor.fontFamily" = "Source Code Pro";
+          "languageTool.language" = "sv";
+          "cSpell.language" = "sv,sv-SE";
+          "markdown-preview-enhanced.previewTheme" = "atom-dark.css";
+          "workbench.colorTheme" = "Monokai";
         };
     };
   };
-
   home.packages = with pkgs; [
 
     curl
@@ -69,6 +86,7 @@ in
     neofetch
     htop
     starship
+    unzip
 
     # fonts
     source-code-pro
@@ -112,7 +130,6 @@ in
     libsForQt5.pim-sieve-editor
     libsForQt5.pim-data-exporter
     libsForQt5.yakuake
-    libsForQt5.kdeconnect-kde
     libsForQt5.kmail
 
     # libaries
@@ -123,6 +140,8 @@ in
   home.file = {
     # ".zshrc".source = ./dotfiles/.zshrc;
     # ".tmux.conf".source = ./dotfiles/.tmux.conf;
+    ".bashrc".source = ./dotfiles/.bashrc;
+    ".ssh/config".source = ./dotfiles/.ssh/config;
     ".config/nushell/config.nu".source = ./dotfiles/.config/nu/config.nu;
     ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
     ".config/vifm".source = ./dotfiles/.config/vifm;
@@ -133,13 +152,20 @@ in
   xdg.userDirs = {
     enable = false;
     createDirectories = true;
-
-    # The XDG base directories. Most of my setup with this user will be my
-    # personal computer so I'll set them like so...
     desktop = "$HOME/desktop";
     download = "$HOME/downloads";
     documents = "$HOME/nextcloud/dokument";
     pictures = "$HOME/nextcloud/moln/bilder";
     videos = "$HOME/nextcloud/moln/video";
+  };
+
+  systemd.user.services.bitwarden = {
+    Unit = {
+      Description = "Bitwarden";
+      After = ["graphical-session-pre.target"];
+      PartOf = ["graphical-session.target"];
+    };
+    Install = {WantedBy = ["graphical-session.target"];};
+    Service = {ExecStart = "${pkgs.bitwarden}/bin/bitwarden";};
   };
 }
