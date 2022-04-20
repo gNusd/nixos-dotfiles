@@ -51,6 +51,7 @@ in
         redhat.vscode-yaml
         vspacecode.whichkey
         mads-hartmann.bash-ide-vscode
+        esbenp.prettier-vscode
         ];
         userSettings = {
           "terminal.integrated.fontFamily" = "Source Code Pro";
@@ -60,14 +61,19 @@ in
           "path-intellisense.autoSlashAfterDirectory" = true;
           "path-intellisense.showHiddenFiles" = true;
           "security.workspace.trust.untrustedFiles" = "open";
-          "editor.fontSize" = 12;
+          "editor.fontSize" = 14;
           "editor.fontFamily" = "Source Code Pro";
           "languageTool.language" = "sv";
           "cSpell.language" = "sv,sv-SE";
           "markdown-preview-enhanced.previewTheme" = "atom-dark.css";
           "workbench.colorTheme" = "Monokai";
+          "window.zoomLevel" = -1; 
         };
     };
+  zathura.options = {
+    default-fg = "#CCBBCC";
+    default-bg = "#000000";
+  };
   };
   home.packages = with pkgs; [
 
@@ -119,8 +125,11 @@ in
     transmission-qt
     zathura
     veracrypt
+    qutebrowser
+    nyxt
 
     # kde plasma apps
+    libsForQt5.kdeconnect-kde
     libsForQt5.ksshaskpass
     libsForQt5.qtkeychain
     libsForQt5.bismuth
@@ -145,8 +154,10 @@ in
     ".config/nushell/config.nu".source = ./dotfiles/.config/nu/config.nu;
     ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
     ".config/vifm".source = ./dotfiles/.config/vifm;
-    ".config/zathura".source = ./dotfiles/.config/zathura;
     ".config/tridactyl".source = ./dotfiles/.config/tridactyl;
+    ".config/qutebrowser/config.py".source = ./dotfiles/.config/qutebrowser/config.py;
+    ".config/qutebrowser/gruvbox.py".source = ./dotfiles/.config/qutebrowser/gruvbox.py;
+    ".config/qutebrowser/gnus.py".source = ./dotfiles/.config/qutebrowser/gnus.py;
   };
 
   xdg.userDirs = {

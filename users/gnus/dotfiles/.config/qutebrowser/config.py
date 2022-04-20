@@ -3,7 +3,7 @@ config.load_autoconfig()
 c.new_instance_open_target = 'window'
 c.downloads.position = 'bottom'
 
-#colors 
+#colors
 black    = "#000000"
 darkgrey = "#030303"
 magenta  = "#ff009e"
@@ -204,22 +204,6 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
-
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.notifications', True, 'https://www.reddit.com')
-
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.notifications', True, 'https://www.youtube.com')
 
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.
