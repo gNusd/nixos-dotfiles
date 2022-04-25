@@ -1,88 +1,4 @@
 # Nushell Config File
-let-env STARSHIP_SHELL = "nu"
-
-def create_left_prompt [] {
-    starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
-}
-# def create_left_prompt [] {
-#    let path_segment = ($env.PWD)
-#
-#   $path_segment
-#}
-
-def create_right_prompt [] {
-    let time_segment = ([
-        (date now | date format '%m/%d/%Y %r')
-    ] | str collect)
-
-    $time_segment
-}
-
-# Use nushell functions to define your right and left prompt
-let-env PROMPT_COMMAND = { create_left_prompt }
-let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
-
-# The prompt indicators are environmental variables that represent
-# the state of the prompt
-let-env PROMPT_INDICATOR = "〉"
-let-env PROMPT_INDICATOR_VI_INSERT = "〉"
-let-env PROMPT_INDICATOR_VI_NORMAL = ":〉"
-let-env PROMPT_MULTILINE_INDICATOR = "::: "
-
-# Specifies how environment variables are:
-# - converted from a string to a value on Nushell startup (from_string)
-# - converted from a value back to a string when running external commands (to_string)
-# Note: The conversions happen *after* config.nu is loaded
-let-env ENV_CONVERSIONS = {
-  "PATH": {
-    from_string: { |s| $s | split row (char esep) }
-    to_string: { |v| $v | str collect (char esep) }
-  }
-  "Path": {
-    from_string: { |s| $s | split row (char esep) }
-    to_string: { |v| $v | str collect (char esep) }
-  }
-}
-
-# Directories to search for scripts when calling source or use
-#
-# By default, <nushell-config-dir>/scripts is added
-let-env NU_LIB_DIRS = [
-    ($nu.config-path | path dirname | path join 'scripts')
-]
-
-# Directories to search for plugin binaries when calling register
-#
-# By default, <nushell-config-dir>/plugins is added
-let-env NU_PLUGIN_DIRS = [
-    ($nu.config-path | path dirname | path join 'plugins')
-]
-
-let-env PAGER = "bat"
-let-env EDITOR = "nvim"
-
-# Set the path
-let-env PATH = ["/run/wrappers/bin",
-                "/home/gnus/.nix-profile/bin",
-                "/etc/profiles/per-user/gnus/bin",
-                "/nix/var/nix/profiles/default/bin",
-                "/run/current-system/sw/bin",
-                "/home/gnus/.config/repos/dotfiles/bin"
-                "/home/gnus/.local/bin"
-                 ]
-
-# aliases
-alias vim = nvim
-alias vi = nvim
-alias suvi = sudo -e
-alias :q = exit
-alias ll = ls -l
-alias la = ls -a
-alias dotfiles = cd "~/.config/repos/dotfiles"
-alias repos = cd "~/.config/repos"
-alias bin = cd "~/.local/bin"
-alias dl = cd "~/downloads"
-alias iso = cd "~/iso"
 
 
 module completions {
@@ -92,7 +8,7 @@ module completions {
   #
   # This is a simplified version of completions for git branches and git remotes
   def "nu-complete git branches" [] {
-    ^git branch | lines | each { |line| $line | str find-replace '\* ' '' | str trim }
+    ^git branch | lines | each { |line| $line | str replace '[\*\+] ' '' | str trim }
   }
 
   def "nu-complete git remotes" [] {
@@ -155,16 +71,15 @@ module completions {
   ]
 }
 
-
 # Get just the extern definitions without the custom completion commands
 use completions *
 
 # for more information on themes see
-# https://github.com/nushell/nushell/blob/main/docs/How_To_Coloring_and_Theming.md
+# https://www.nushell.sh/book/coloring_and_theming.html
 let default_theme = {
     # color for nushell primitives
     separator: white
-    leading_trailing_space_bg: { attr: n } # no fg, no bg, attr non effectively turns this off
+    leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
     header: green_bold
     empty: blue
     bool: white
@@ -217,8 +132,7 @@ let $config = {
   filesize_metric: false
   table_mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
   use_ls_colors: true
-  rm_always_trash: true
-
+  rm_always_trash: false
   color_config: $default_theme
   use_grid_icons: true
   footer_mode: "25" # always, never, number_of_rows, auto
@@ -229,22 +143,127 @@ let $config = {
   use_ansi_coloring: true
   filesize_format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, zb, zib, auto
   edit_mode: vi # emacs, vi
-  max_history_size: 10000
-  menu_config: {
-    columns: 4
-    col_width: 20   # Optional value. If missing all the screen width is used to calculate column width
-    col_padding: 2
-    text_style: green
-    selected_text_style: green_reverse
-    marker: "| "
-  }
-  history_config: {
-    page_size: 10
-    selector: "!"
-    text_style: green
-    selected_text_style: green_reverse
-    marker: "? "
-  }
+  max_history_size: 10000 # Session has to be reloaded for this to take effect
+  sync_history_on_enter: true # Enable to share the history between multiple sessions, else you have to close the session to persist history to file
+  menus: [
+      # Configuration for default nushell menus
+      # Note the lack of souce parameter
+      {
+        name: completion_menu
+        only_buffer_difference: false
+        marker: "| "
+        type: {
+            layout: columnar
+            columns: 4
+            col_width: 20   # Optional value. If missing all the screen width is used to calculate column width
+            col_padding: 2
+        }
+        style: {
+            text: green
+            selected_text: green_reverse
+            description_text: yellow
+        }
+      }
+      {
+        name: history_menu
+        only_buffer_difference: true
+        marker: "? "
+        type: {
+            layout: list
+            page_size: 10
+        }
+        style: {
+            text: green
+            selected_text: green_reverse
+            description_text: yellow
+        }
+      }
+      {
+        name: help_menu
+        only_buffer_difference: true
+        marker: "? "
+        type: {
+            layout: description
+            columns: 4
+            col_width: 20   # Optional value. If missing all the screen width is used to calculate column width
+            col_padding: 2
+            selection_rows: 4
+            description_rows: 10
+        }
+        style: {
+            text: green
+            selected_text: green_reverse
+            description_text: yellow
+        }
+      }
+      # Example of extra menus created using a nushell source
+      # Use the source field to create a list of records that populates
+      # the menu
+      {
+        name: commands_menu
+        only_buffer_difference: false
+        marker: "# "
+        type: {
+            layout: columnar
+            columns: 4
+            col_width: 20
+            col_padding: 2
+        }
+        style: {
+            text: green
+            selected_text: green_reverse
+            description_text: yellow
+        }
+        source: { |buffer, position|
+            $nu.scope.commands
+            | where command =~ $buffer
+            | each { |it| {value: $it.command description: $it.usage} }
+        }
+      }
+      {
+        name: vars_menu
+        only_buffer_difference: true
+        marker: "# "
+        type: {
+            layout: list
+            page_size: 10
+        }
+        style: {
+            text: green
+            selected_text: green_reverse
+            description_text: yellow
+        }
+        source: { |buffer, position|
+            $nu.scope.vars
+            | where name =~ $buffer
+            | sort-by name
+            | each { |it| {value: $it.name description: $it.type} }
+        }
+      }
+      {
+        name: commands_with_description
+        only_buffer_difference: true
+        marker: "# "
+        type: {
+            layout: description
+            columns: 4
+            col_width: 20
+            col_padding: 2
+            selection_rows: 4
+            description_rows: 10
+        }
+        style: {
+            text: green
+            selected_text: green_reverse
+            description_text: yellow
+        }
+        source: { |buffer, position|
+            $nu.scope.commands
+            | where command =~ $buffer
+            | each { |it| {value: $it.command description: $it.usage} }
+        }
+      }
+  ]
   keybindings: [
     {
       name: completion_menu
@@ -288,6 +307,28 @@ let $config = {
           { edit: undo }
         ]
       }
+    }
+    # Keybindings used to trigger the user defined menus
+    {
+      name: commands_menu
+      modifier: control
+      keycode: char_t
+      mode: [emacs, vi_normal, vi_insert]
+      event: { send: menu name: commands_menu }
+    }
+    {
+      name: vars_menu
+      modifier: control
+      keycode: char_y
+      mode: [emacs, vi_normal, vi_insert]
+      event: { send: menu name: vars_menu }
+    }
+    {
+      name: commands_with_description
+      modifier: control
+      keycode: char_u
+      mode: [emacs, vi_normal, vi_insert]
+      event: { send: menu name: commands_with_description }
     }
   ]
 }

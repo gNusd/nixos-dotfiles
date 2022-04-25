@@ -126,8 +126,7 @@ in
     };
     bluetooth = {
       enable = true;
-	  hsphfpd.enable = true;
-	  powerOnBoot = true;
+	    hsphfpd.enable = true;
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";

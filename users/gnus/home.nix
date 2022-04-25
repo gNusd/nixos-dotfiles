@@ -51,7 +51,6 @@ in
         redhat.vscode-yaml
         vspacecode.whichkey
         mads-hartmann.bash-ide-vscode
-        esbenp.prettier-vscode
         ];
         userSettings = {
           "terminal.integrated.fontFamily" = "Source Code Pro";
@@ -68,6 +67,7 @@ in
           "markdown-preview-enhanced.previewTheme" = "atom-dark.css";
           "workbench.colorTheme" = "Monokai";
           "window.zoomLevel" = -1; 
+          "git.confirmSync" = false;
         };
     };
   zathura.options = {
@@ -82,7 +82,6 @@ in
     vifm
     fwupd
     bat
-    dust
     fd
     ripgrep
     tokei
@@ -94,6 +93,10 @@ in
     starship
     unzip
 
+    #development
+    gcc
+    gnumake
+    
     # fonts
     source-code-pro
     nerdfonts
@@ -126,7 +129,6 @@ in
     zathura
     veracrypt
     qutebrowser
-    nyxt
 
     # kde plasma apps
     libsForQt5.kdeconnect-kde
@@ -152,6 +154,7 @@ in
     ".bashrc".source = ./dotfiles/.bashrc;
     ".ssh/config".source = ./dotfiles/.ssh/config;
     ".config/nushell/config.nu".source = ./dotfiles/.config/nu/config.nu;
+    ".config/nushell/env.nu".source = ./dotfiles/.config/nu/env.nu;
     ".config/nvim/init.vim".source = ./dotfiles/.config/nvim/init.vim;
     ".config/vifm".source = ./dotfiles/.config/vifm;
     ".config/tridactyl".source = ./dotfiles/.config/tridactyl;
