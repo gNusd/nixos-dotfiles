@@ -49,7 +49,7 @@ in
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
     useDHCP = false;
-    interfaces.enp0s20f0u4u2.useDHCP = true;
+    interfaces.wlp3s0.useDHCP = true;
 
   # Open ports in the firewall.
     firewall = {
@@ -189,6 +189,12 @@ virtualisation.libvirtd.enable = true;
   system.autoUpgrade = {
     enable = true;
     channel = "https://nixos.org/channels/nixos-21.11";
+  };
+  
+  nix.gc = {
+    automatic = true;  # Enable the automatic garbage collector
+    dates = "weekly";   # When to run the garbage collector
+    options = "--delete-older-than 10d";    # Arguments to pass to nix-collect-garbage
   };
 
   nix.autoOptimiseStore = true;
