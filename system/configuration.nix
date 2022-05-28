@@ -123,10 +123,11 @@ in
       enable = true;
       extraModules = [ pkgs.pulseaudio-modules-bt ];
       package = pkgs.pulseaudioFull;
+      extraConfig = "load-module module-switch-on-connect";
     };
     bluetooth = {
       enable = true;
-	    hsphfpd.enable = true;
+      hsphfpd.enable = true;
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
@@ -151,6 +152,7 @@ in
     bash
     neovim
     firefox
+    clang
   ];
 
 ####################
@@ -190,14 +192,90 @@ virtualisation.libvirtd.enable = true;
     enable = true;
     channel = "https://nixos.org/channels/nixos-21.11";
   };
-  
-  nix.gc = {
-    automatic = true;  # Enable the automatic garbage collector
-    dates = "weekly";   # When to run the garbage collector
-    options = "--delete-older-than 10d";    # Arguments to pass to nix-collect-garbage
-  };
 
-  nix.autoOptimiseStore = true;
+  # garbage
+  #nix.gc = {
+  #  automatic = true;
+  #  dates = "day";
+  #  options = "--delete-older-than 10d";
+  #};
+
+  # nix.autoOptimiseStore = true;
+
+
+    systemd.services = {
+
+      # service for fstrim.timer
+        fstrim = {
+            description = "Discard unused blocks";
+            path = [ pkgs.utillinux ];
+            serviceConfig = {
+                Type = "oneshot";
+                ExecStart = "${pkgs.utillinux}/bin/fstrim -av";
+            };
+        };
+
+        # service for nix-collect-garbage.timer
+        nix-collect-garbage = {
+            description = "Remove NixOS generation older than 14 days";
+            enable = false;
+            path = [ pkgs.nix ];
+            serviceConfig = {
+                Type = "oneshot";
+                ExecStart = "${pkgs.nix}/bin/nix-collect-garbage --delete-older-than 14d";
+            };
+        };
+        nix-repair = {
+            description = "Check and repair Nix store";
+            enable = true;
+            path = [ pkgs.nix ];
+            serviceConfig = {
+                Type = "oneshot";
+                ExecStart = "${pkgs.nix}/bin/nix-store --verify --check-contents --repair";
+            };
+        };
+    };
+
+    systemd.timers = {
+        # do fstrim every week, instead of discard-on-delete
+        fstrim = {
+            description = "Discard unused blocks once a week";
+            timerConfig = {
+                OnCalendar = "weekly";
+                AccuracySec = "6h";
+                Unit = "fstrim.service";
+                Persistent = true;
+            };
+            wantedBy = [ "timers.target" ];
+        };
+
+        # auto-clean generations older than 7 days, every week
+        nix-collect-garbage = {
+            description = "Remove old NixOS generations";
+            enable = false;
+            timerConfig = {
+                OnCalendar = "weekly";
+                AccuracySec = "6h";
+                Unit = "nix-collect-garbage.service";
+                Persistent = true;
+            };
+            before = [ "fstrim.timer" ];
+            wantedBy = [ "timers.target" ];
+        };
+        nix-repair = {
+            description = "Check and repair Nix store";
+            enable = true;
+            timerConfig = {
+                OnCalendar = "daily";
+                AccuracySec = "6h";
+                Unit = "nix-repair.service";
+                Persistent = true;
+            };
+            before = [ "fstrim.timer" ];
+            wantedBy = [ "timers.target" ];
+        };
+    };
+
 
 ############
 ## FLAKES ##

@@ -60,14 +60,15 @@ in
           "path-intellisense.autoSlashAfterDirectory" = true;
           "path-intellisense.showHiddenFiles" = true;
           "security.workspace.trust.untrustedFiles" = "open";
-          "editor.fontSize" = 14;
+          "editor.fontSize" = 16;
           "editor.fontFamily" = "Source Code Pro";
           "languageTool.language" = "sv";
           "cSpell.language" = "sv,sv-SE";
           "markdown-preview-enhanced.previewTheme" = "atom-dark.css";
           "workbench.colorTheme" = "Monokai";
-          "window.zoomLevel" = -1; 
+          "window.zoomLevel" = 0;
           "git.confirmSync" = false;
+           "c-cpp-compile-run.c-compiler" = "/nix/store/nla0kzc0gvzc1fkqqg3vyb75zqn0d16p-home-manager-path/bin/gcc";
         };
     };
   zathura.options = {
@@ -92,11 +93,13 @@ in
     htop
     starship
     unzip
+    nmap
+	  rsync
 
     #development
     gcc
     gnumake
-    
+
     # fonts
     source-code-pro
     nerdfonts
@@ -129,6 +132,7 @@ in
     zathura
     veracrypt
     qutebrowser
+    vlc
 
     # kde plasma apps
     libsForQt5.kdeconnect-kde
@@ -146,6 +150,12 @@ in
     # libaries
     vivaldi-widevine
     vivaldi-ffmpeg-codecs
+
+	# development
+    clib
+    glibc
+	  rustc
+	  cargo
   ];
 
   home.file = {
